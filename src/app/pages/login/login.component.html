@@ -1,0 +1,35 @@
+<div class="container">
+  <nav>
+    <h1>E Wealth</h1>
+  </nav>
+</div>
+
+<div class="sliding-background">
+  <!-- Article Text, positioned at the top of the form -->
+  <div class="article">
+    <h1>Welcome to E Wealth Student Portal</h1>
+  </div>
+
+  <!-- Login Form at the bottom -->
+  <div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Valid email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="password" placeholder="Enter your password" />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Password is required.
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+    </form>
+  </div>
+</div>
